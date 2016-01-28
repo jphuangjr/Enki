@@ -16,7 +16,7 @@ module.exports = {
     //Query to getgit
     getResource: function(req, res){
         //TODO: Write getResource function. Keyword is just placeholder
-        var keyword = req || ["Math", "Science"];
+        var keyword = req.body || ["Math", "Science"];
         keyword = JSON.stringify(keyword);
         //This is a map of the array not a filter
         db.cypherQuery("MATCH (n:Resource)-[:TAGGED]-(t:Tag) WHERE t.name IN "+keyword+" RETURN n", function(err, query){

@@ -9,7 +9,17 @@ angular.module('fickle.search',['ngMaterial', 'ngMessages'])
       $scope.tags = data;
     });
 
-    $scope.toggle = function (item, list) {
+    $scope.sendTags = function() {
+      Podcasts.getPodcasts($scope.selected).then(function () {
+
+      });
+    }
+
+    Podcasts.GetRec(function(data){
+      $scope.results = data
+    })
+
+      $scope.toggle = function (item, list) {
       var idx = list.indexOf(item);
       if (idx > -1) list.splice(idx, 1);
       else list.push(item);
